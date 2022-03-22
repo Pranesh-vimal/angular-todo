@@ -1,0 +1,19 @@
+.header {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  display: flex;
+  z-index: 10;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+
+  p {
+    font-weight: bold;
+    color: var(--primary-font-color);
+
+    span {
+      font-weight: lighter;
+    }
+  }
+}

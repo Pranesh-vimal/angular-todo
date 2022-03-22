@@ -1,0 +1,13 @@
+<div class="todo-item">
+  <div class="content">
+    <p class="title" (click)="changeStatus(todo)">
+      {{ todo.title | titleCase }}
+    </p>
+    <p class="delete" (click)="deleteTodo(todo.id)">
+      <i class="fas fa-solid fa-trash-can"></i>
+    </p>
+  </div>
+  <div class="date">
+    <p>{{ todo.created_at | date: "dd/MM/yyyy" }}</p>
+  </div>
+</div>
