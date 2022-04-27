@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    APP_NAME: "todo-list"
+    APP_NAME: "todo-angular-app"
 phases:
   install:
     runtime-versions:
