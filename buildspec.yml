@@ -4,21 +4,16 @@ phases:
     runtime-versions:
       nodejs: 10
     commands:
-      - echo Installing
-  pre_build:
-    commands:
-      - echo Installing source NPM dependencies...
-      - npm install
+      - npm install -g @angular/cli
   build:
     commands:
-      - echo Build started on `date`
-      - echo Compiling the Node.js code
-      - npm run test
-      - npm run build
+      - ng build --configuration=$BUILD_ENV --build-optimizer
   post_build:
     commands:
-      - echo Build completed on `date`
-# Include only the files required for your application to run.
+      - aws s3 sync dist/ s3://$BUCKET_NAME --delete
+
 artifacts:
+  type: zip
+  base-directory: dist
   files:
-    - dist/*
+    - "**/*"
