@@ -13,9 +13,14 @@ phases:
     commands:
       - echo build process started now
       - npm run build
-  post_build:
-    commands:
-      - echo build process finished, we should uplload to S3 now
-      - cd dist/$APP_NAME
-      - ls -la
-      - aws s3 sync . s3://pranesh-todoapp --delete
+#   post_build:
+#     commands:
+#       - echo build process finished, we should uplload to S3 now
+#       - cd dist/$APP_NAME
+#       - ls -la
+#       - aws s3 sync . s3://pranesh-todoapp --delete
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist/$APP_NAME
