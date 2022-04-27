@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    APP_NAME: "todo-angular-app"
+    APP_NAME: "todo-list"
 phases:
   install:
     runtime-versions:
@@ -16,6 +16,6 @@ phases:
   post_build:
     commands:
       - echo build process finished, we should uplload to S3 now
-      - ls -la
       - cd dist/$APP_NAME
+      - ls -la
       - aws s3 sync . s3://pranesh-todoapp --delete
