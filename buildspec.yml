@@ -13,6 +13,10 @@ phases:
     commands:
       - echo build process started now
       - npm run build
+  post_build:
+    commands:
+      - mv appspec.yml ./dist/$APP_NAME
+      - mv scripts ./dist/$APP_NAME
 #   post_build:
 #     commands:
 #       - echo build process finished, we should uplload to S3 now
